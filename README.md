@@ -11,7 +11,7 @@
 ## What is SpotAPI?
 
 SpotAPI is a Python wrapper for the endpoint `https://api-partner.spotify.com/`.
-Its normal usage is to be used in the frontend of a web application and can unlock some features that are not available in the official Spotify API.
+Its normal usage is to be used in the frontend ([https://open.spotify.com](https://open.spotify.com)) and can unlock some features that are not available in the official Spotify API.
 
 ## Installation
 
