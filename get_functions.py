@@ -1,6 +1,7 @@
-import requests
-import re
 import json
+import re
+
+import requests
 
 s = requests.Session()
 
@@ -38,12 +39,11 @@ for link in list(set(js_links)):
         if not index:
             continue
 
-        function = response.text[start:start+index + 2]
+        function = response.text[start:start + index + 2]
 
         function_index = query.group("i")
         if function_index not in results:
             results[function_index] = {"calls": call_re.findall(function), "variables": [], "operations": {}}
-
 
         # search variables
         for query in dict_re.finditer(function):
@@ -60,7 +60,7 @@ for link in list(set(js_links)):
                             break
             if not index:
                 continue
-            result = function[start-1:start+index+1]
+            result = function[start - 1:start + index + 1]
             if "=" in result or ":" not in result or "return" in result:
                 continue
             results[function_index]["variables"].append(result)
@@ -77,7 +77,6 @@ for link in list(set(js_links)):
             if query[2] not in results[function_index]["operations"][query[1]][name]:
                 results[function_index]["operations"][query[1]][name][query[2]] = []
             results[function_index]["operations"][query[1]][name][query[2]].append(link)
-
 
 with open("functions.json", "w", encoding="utf-8") as fobj:
     json.dump(all_results, fobj, indent=4)

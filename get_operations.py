@@ -2,9 +2,10 @@
 This script is outdated. It can only extract operations and their hashes from Spotify's JavaScript files.
 """
 
-import requests
-import re
 import json
+import re
+
+import requests
 
 s = requests.Session()
 
@@ -20,7 +21,8 @@ results = {}
 for link in js_links:
     print(link)
     response = s.get(link)
-    queries = re.findall(r'\("(?P<name>\w+)","(?P<type>\w+)","(?P<hash>[\da-f]{64})",(?P<value>.[^)]+)\)', response.text)
+    queries = re.findall(r'\("(?P<name>\w+)","(?P<type>\w+)","(?P<hash>[\da-f]{64})",(?P<value>.[^)]+)\)',
+                         response.text)
     for query in queries:
         name = query[0]
         # item = {"type": query[1], "hash": query[2], "value": query[3]}
