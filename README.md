@@ -28,7 +28,7 @@ pip install -r requirements.txt
 Generate `functions.json` file with the following command:
 
 ```bash
-python get_functions.py
+python get_operations.py
 ```
 
 Then you can run the `main.py` file to use the API:
