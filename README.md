@@ -1,3 +1,5 @@
+# THERE ALREADY EXISTS A WORKING VERSION (with the same name lol): https://github.com/Aran404/SpotAPI
+
 # SpotAPI
 
 > [!WARNING]
